@@ -15,6 +15,7 @@ class BantuanController extends Controller
 
         return view('admin.bantuan')->with('posts',$bantuan);
     }
+
     public function store(Request $request)
     {
         $bantuan =new Bantuan();
@@ -32,6 +33,7 @@ class BantuanController extends Controller
         
         return view('admin.respons')->with('bantuan',$bantuan);
     }
+
     public function send(Request $request){
         $data = [
             'id' => $request->id,
@@ -48,10 +50,11 @@ class BantuanController extends Controller
           Mail::to($request->email)->send(new BantuanEmail($data));
           return redirect('/admin/bantuan')->with('success','Bantuan sudah diresponse, Email bantuan terkirim ke pelanggan');
     }
+
     public function destroy($id)
     {
-        $posts = Bantuan::findOrfail($id);
-        $posts ->delete();
+        $bantuan = Bantuan::findOrfail($id);
+        $bantuan ->delete();
 
         return redirect('/admin/bantuan')->with('success','Your Data is Deleted');
     }

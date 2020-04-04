@@ -21,10 +21,10 @@ class GalleryController extends Controller
     {
         return view('admin.gallery-create');
     }
+
     public function store(Request $request)
     {
         $post=new Gallery;
-
         $file=$request->file('file');
         $nama_file=time()."_".$file->getClientOriginalName();
         $tujuanupload='tumbnail';
@@ -34,11 +34,7 @@ class GalleryController extends Controller
         })->save($tujuanupload .'/'. $nama_file);
         $tujuanupload='gallery';
         $file->move($tujuanupload,$nama_file);
-
-               
         $post->nama = $request->nama;
-       
-        
         $post->image= $nama_file;
         $post->save();
         
@@ -56,6 +52,7 @@ class GalleryController extends Controller
         $gallery = Gallery::orderBy('created_at', 'DESC')->paginate(6);
         return view('galleryall')->with('gallery',$gallery);
     }
+    
     public function delete($id){
         $gambar = Gallery::where('id',$id)->first();
         File::delete('gallery/'.$gambar->image);

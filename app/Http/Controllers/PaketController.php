@@ -67,7 +67,6 @@ class PaketController extends Controller
     public function store(Request $request)
     {
         $post=new Paket;
-
         $file=$request->file('file');
         $nama_file=time()."_".$file->getClientOriginalName();
         $tujuanupload='tumbnail';
@@ -77,7 +76,6 @@ class PaketController extends Controller
         })->save($tujuanupload .'/'. $nama_file);
         $tujuanupload='data_file';
         $file->move($tujuanupload,$nama_file);
-
         $post->pegunungan = $request->ranting1; 
         $post->bangunan = $request->ranting2; 
         $post->sungai = $request->ranting3; 
@@ -88,7 +86,6 @@ class PaketController extends Controller
         $post->fasilitas = $request->fasilitas;
         $post->ketentuan = $request->ketentuan;
         $post->kategori = $request->kategori;
-       
         $post->harga_mulai=$request->harga_mulai;
         $post->image= $nama_file;
         $post->save();
@@ -119,9 +116,7 @@ class PaketController extends Controller
     public function update(Request $request, $id)
     {
         $post = Paket::find($id);
-
         if ($request->File('image')) {
-
             File::delete('data_file/'.$post->image);
             File::delete('tumbnail/'.$post->image);
             $file = $request->file('image');
@@ -135,7 +130,6 @@ class PaketController extends Controller
             $file->move($tujuanupload,$nama_file);
             $post->image= $nama_file;
         }    
-
         $oldtitle=$post->title;
         $post->pegunungan = $request->ranting1; 
         $post->bangunan = $request->ranting2; 
@@ -147,22 +141,18 @@ class PaketController extends Controller
         $post->fasilitas = $request->fasilitas;
         $post->ketentuan = $request->ketentuan;
         $post->kategori = $request->kategori;
-       
         $post->harga_mulai=$request->harga_mulai;
-        
         $post->update();
-
+        
         //UPDATE DATA REKOMENDASI USER SETELAH INPUT PAKET BARU//
         Rekomendasi :: where ('paket',$oldtitle)->delete();
 
         $users=DB::table('users')->select('id','pegunungan','bangunan','sungai','pantai')->get();
         $paket = DB::table('pakets')->where('title', $request->title)->value('id');
-        
         foreach ($users as $user)
         {
             $a = [$user->pegunungan, $user->bangunan, $user->sungai, $user->pantai];
             $b = [$request->ranting1, $request->ranting2, $request->ranting3, $request->ranting4];
-
             $euclidean =$this->eucDistance($a, $b);
             $sim=1/(1+$euclidean);
             app()->call('App\Http\Controllers\RekomendasiController@create',[$user->id,$paket,$request->title,$sim]);
@@ -180,6 +170,7 @@ class PaketController extends Controller
         $pakets ->delete();
         return redirect('/admin/paket')->with('success','Your Data is Deleted');
     }
+    
     public function cari(Request $request)
     {
         $cari = $request->cari;

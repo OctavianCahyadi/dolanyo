@@ -70,9 +70,9 @@ class TransaksiController extends Controller
 
     public function posted()
     {
-        $post = Transaksi::orderBy('created_at', 'DESC')->paginate(5);
+        $transaksi = Transaksi::orderBy('created_at', 'DESC')->paginate(5);
         
-        return view('admin.transaksi')->with('posts',$post);
+        return view('admin.transaksi')->with('posts',$transaksi);
     }
 
     public function transaksi(Request $request){
