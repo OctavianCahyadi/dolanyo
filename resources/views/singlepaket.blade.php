@@ -58,9 +58,36 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-10 mx-auto">
-              
-              <p class="lead">{!! $paket->deskripsi !!}</p>          
-                           
+              @php
+                  $harga=$paket->harga_mulai;
+                  if (is_numeric($harga)){
+                    $format_harga = number_format($harga, '0', ',', '.');                    
+                  }
+                  $total=$paket->harga_mulai * $kategori->maxpeserta;
+              @endphp
+              <script>
+                function fun(){
+                  
+                  var price = "<?php echo $total ?>";  
+                  var harga_mulai= "<?php echo $paket->harga_mulai ?>"; 
+                  var member = document.getElementById("contactform-member").value;  
+                  var calculate = price / member;
+                  var temp = Math.ceil(calculate);
+                  var harga= Math.round(temp/1000)*1000;
+                  var reverse = harga.toString().split('').reverse().join(''),
+                  ribuan = reverse.match(/\d{1,3}/g);
+                  ribuan = ribuan.join('.').split('').reverse().join('');
+                  document.getElementById("member-kosten").innerHTML = ribuan;
+                  document.getElementById("peserta").innerHTML = member;
+                    }
+                </script>
+
+              <p class="lead">{!! $paket->deskripsi !!}</p> 
+              <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
+              <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
+              <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
+              <p class="lead">Harga <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> /Pax untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta.</p> 
+           
               <div class="card card-plain">
                 <div class="">
                   <!-- Nav tabs -->

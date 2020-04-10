@@ -194,37 +194,18 @@ a.class, a.class:hover {
 
 <div class="container mb-5 align-items-center" >
   <div class="row justify-content-center">
-      <a class="class" href="/paket/private">
-      <div class="card1 1 text-center ml-5 ">
+    @foreach ($kategori as $item)
+    <a class="class" href="/paket/{{$item->id}}">
+      <div class="card1 1 text-center ml-2 mr-2">
         
-        <img class="img-fluid" src="../assets/img/private.png" alt="Card Image Cap" style="width: 250px">
+        <img class="img-fluid" src="{{ url('/data_file/'.$item->image) }}"  alt="Card Image Cap" style="width: 250px">
         
         <div class="container text-center">
-            <h5 class="text-muted">Private Tour</h5>
+            <h5 class="text-muted">{{$item->kategori}}</h5>
         </div>
       </div>
     </a>
-    
-    <a class="class" href="/paket/group">
-    <div class="card1 1 text-center ml-5">
-        
-      <img class="img-fluid" src="../assets/img/group.png" alt="Card Image Cap" style="width: 250px">
-        
-        <div class="container text-center">
-            <h5 class="text-muted">Group Tour</h5>
-        </div>
-      </div>
-    </a>
-
-    <a class="class"  href="/paket/honeymoon">
-    <div class="card1 1 text-center ml-5">
-       <img class="img-fluid" src="../assets/img/honeymoon.png" alt="Card Image Cap" style="width: 250px">
-        
-        <div class="container text-center">
-            <h5 class="text-muted">Honeymoon</h5>
-        </div>
-      </div>
-    </a>
+  @endforeach
   </div>
 </div>
     

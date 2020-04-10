@@ -113,7 +113,7 @@ a.class, a.class:hover {
 
   @foreach ($kategori as $item)
     <a class="class" href="/paket2/{{$item->id}}">
-      <div class="card 1 text-center ml-5 ">
+      <div class="card 1 text-center ml-2 mr-2 ">
         
         <img class="img-fluid" src="{{ url('/data_file/'.$item->image) }}"  alt="Card Image Cap" style="width: 250px">
         
