@@ -22,19 +22,20 @@
 
 
 @section('content')
-   <div class="page-header header-filter" data-parallax="true" style="background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('{{ url('/data_file/'.$post->image) }}')">
-     <div class="container">
-       <div class="row">
-         <div class="col-md-8 ml-auto mr-auto">
-           <div class="brand text-center">
-            <h1 class="mt-5" style="color: white; text-shadow: 2px 2px 4px #808080;"><strong> {{ $post->title }} <span class="lead"> </span>  </strong></h1>
-            <hr style="text-shadow: 2px 2px 4px 	#696969;">by <a href="#"> {{ $post->user->name }} </a>
-            <p style="text-shadow: 2px 2px 4px 	#696969;">Posted {{ $post->created_at->diffForHumans() }} </p>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('{{ url('/data_file/'.$post->image) }}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="brand text-center">
+         <h1 class="mt-5"  style="color: white; text-shadow: 2px 2px 4px #808080;"><strong> {{ $post->title }} <span class="lead"> </span>  </strong></h1>
+         
+         <hr style="text-shadow: 2px 2px 4px 	#696969;" >by <a href="#"> {{ $post->user->name }} </a>
+         <p style="text-shadow: 2px 2px 4px 	#696969;">Posted {{ $post->created_at->diffForHumans() }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
    <div class="main main-raised">
      <div class="container">
        <div class="section text-justify">

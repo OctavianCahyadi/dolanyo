@@ -21,63 +21,87 @@
   @endsection
 
 
-@section('content')
-   <div class="page-header" data-parallax="true" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('{{ url('/data_file/'.$paket->image) }}')">
-     <div class="container">
-       <div class="row">
-         <div class="col-md-8 ml-auto mr-auto">
-           <div class="brand text-center mt-5">
-            <h1 style="text-shadow: 2px 2px 4px #808080;">{{ $paket->title }} <span class="lead mt-5"> </span> </h1>
-            <p style="text-shadow: 2px 2px 4px 	#696969;">Posted {{ $paket->created_at->diffForHumans() }} </p>
+  @section('content')
+  <div class="page-header" data-parallax="true" style="background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('{{ url('/data_file/'.$paket->image) }}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand text-center mt-5">
+           <h1 style="text-shadow: 2px 2px 4px #808080;">{{ $paket->title }} <span class="lead mt-5"> </span> </h1>
+           <p style="text-shadow: 2px 2px 4px 	#696969;">Posted {{ $paket->created_at->diffForHumans() }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-justify">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-10 mx-auto">
+             @php
+                 $harga=$paket->harga_mulai;
+                 if (is_numeric($harga)){
+                   $format_harga = number_format($harga, '0', ',', '.');                    
+                 }
+                 $total=$paket->harga_mulai * $kategori->maxpeserta;
+             @endphp
+             <script>
+               function fun(){                  
+                 var price = "<?php echo $total ?>";  
+                 var harga_mulai= "<?php echo $paket->harga_mulai ?>"; 
+                 var member = document.getElementById("contactform-member").value;  
+                 var calculate = price / member;
+                 var temp = Math.ceil(calculate);
+                 var harga= Math.round(temp/1000)*1000;
+                 var reverse = harga.toString().split('').reverse().join(''),
+                 ribuan = reverse.match(/\d{1,3}/g);
+                 ribuan = ribuan.join('.').split('').reverse().join('');
+                 document.getElementById("member-kosten").innerHTML = ribuan;
+                 document.getElementById("peserta").innerHTML = member;
+                   }
+               </script>
+
+             <p class="lead">{!! $paket->deskripsi !!}</p> 
+             <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
+             <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
+             <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
+             <p class="lead">Harga <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> /Pax untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta.</p> 
+          
+             <div class="card card-plain">
+               <div class="">
+                 <!-- Nav tabs -->
+                 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist" data-background-color="orange">
+                     <li class="nav-item ml-5 mr-5">
+                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Overview</a>
+                     </li>
+                     <li class="nav-item  ml-5 mr-5">
+                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Fasilitas</a>
+                     </li>
+                     <li class="nav-item  ml-5 mr-5">
+                     <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Ketentuan</a>
+                     </li>
+                     
+                 </ul>
+           
+               <!-- Tab panes -->
+               <div class="card-body">
+                 <div class="tab-content text-justify ">
+                     <div class="tab-pane active"  id="home" role="tabpanel" aria-labelledby="home-tab"><p class="lead card-text collapse" id="collapseContent">{!! $paket->overview !!}</p></div>
+                     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"><p class="lead">{!! $paket->fasilitas !!}</p></div>
+                     <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab"><p class="lead">{!! $paket->ketentuan !!}</p></div>
+                   
+                 </div>
+               </div>
+             </div>
+           </div> 
+         </div>
+             
+             <hr>
+             
            </div>
          </div>
-       </div>
-     </div>
-   </div>
-   <div class="main main-raised">
-     <div class="container">
-       <div class="section text-justify">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              
-              <p class="lead">{!! $paket->deskripsi !!}</p>
-             
-              
-              
-
-              <div class="card card-plain">
-                <div class="">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist" data-background-color="orange">
-                      <li class="nav-item ml-5 mr-5">
-                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Overview</a>
-                      </li>
-                      <li class="nav-item  ml-5 mr-5">
-                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Fasilitas</a>
-                      </li>
-                      <li class="nav-item  ml-5 mr-5">
-                      <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Ketentuan</a>
-                      </li>
-                      
-                  </ul>
-            
-                <!-- Tab panes -->
-                <div class="card-body">
-                <div class="tab-content text-justify">
-                    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab"> <p class="lead">{!! $paket->overview !!}</p></div>
-                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"><p class="lead">{!! $paket->fasilitas !!}</p></div>
-                    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab"><p class="lead">{!! $paket->ketentuan !!}</p></div>
-                   
-                </div>
-              </div>
-            </div> 
-          </div>
-              
-              <hr>
-              
-            </div>
-          </div>
           <div class="text-center">
             <a href="/login" class="btn btn-lg btn-primary btn-rounded mb-2 " ><strong>Login</strong> Untuk Pesan !</a><br>
             <a href="/register"><strong>Register</strong> Untuk Bergabung !</a>

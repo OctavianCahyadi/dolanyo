@@ -66,8 +66,7 @@
                   $total=$paket->harga_mulai * $kategori->maxpeserta;
               @endphp
               <script>
-                function fun(){
-                  
+                function fun(){                  
                   var price = "<?php echo $total ?>";  
                   var harga_mulai= "<?php echo $paket->harga_mulai ?>"; 
                   var member = document.getElementById("contactform-member").value;  
