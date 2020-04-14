@@ -61,7 +61,7 @@ class PageController extends Controller
         $post = DB::table('transaksis')
         ->where('user_id',$id)
         ->orderBy('created_at', 'desc')
-        ->paginate();
+        ->paginate(3);
 
         return view('profile')->with('posts',$post);
     }
