@@ -8,7 +8,7 @@ use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\DB;
 use Image;
 use File;
-
+use Illuminate\Support\Facades\Validator;
 class PostController extends Controller
 {
     /**
@@ -61,6 +61,12 @@ class PostController extends Controller
     
     public function store(Request $request)
     {
+        $validate= $request->validate([
+            'title'=>['required','string','unique:posts'], 
+            'body'=>['required','string'],           
+        ]);
+
+
         $post =new Post;
         $file=$request->file('file');
         $nama_file=time()."_".$file->getClientOriginalName();
@@ -112,9 +118,28 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validate= $request->validate([
+            'title'=>['required','string','unique:posts'], 
+            'body'=>['required','string'],           
+        ]);
         $posts = Post::find($id);
-        $posts->title=$request->input('username');
-        $posts->body=$request->input('usertype');
+        if ($request->File('file')) { 
+            
+
+            $file=$request->file('file');
+            $nama_file=time()."_".$file->getClientOriginalName();
+            $tujuanupload='tumbnail';
+            $resize_image=Image::make($file->getRealPath());
+            $resize_image->resize(200,200,function($constraint){
+            $constraint->aspectRatio();
+            })->save($tujuanupload .'/'. $nama_file);
+            $tujuanupload='data_file';
+            $file->move($tujuanupload,$nama_file);
+            $posts->image= $nama_file;
+        }
+
+        $posts->title=$request->title;
+        $posts->body=$request->body;     
         $posts->update();
         
         return redirect('/posted')->with('success','Your Data is Updated');

@@ -16,7 +16,12 @@
 
             <div class="form-group" >
                 <label for="">Title</label>
-                <input type="text" class="form-control" name="title" placeholder="Post title">
+                <input type="text" class="form-control  @error('title') is-invalid @enderror" name="title" id="title" placeholder="Post title" required autocomplete="title" value="{{ old('title') }}">
+                @error('title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">               
                 <input type="hidden" class="form-control" name="user_id" placeholder="Post title" value="{{ Auth::user()->id }}">
@@ -24,11 +29,16 @@
 
             <div class="form-group">
                 <label for="">Body</label>
-                <textarea name="body" class="form-control" rows="5" placeholder="Post content" id="editor1"></textarea>
+                <textarea name="body"  class="form-control @error('body') is-invalid @enderror" rows="5" placeholder="Post content" id="editor1" required autocomplete="body"> {{ old('body') }}</textarea>
+                @error('body')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="custom-file mb-3">
-                <input type="file" name="file" class="custom-file-input" id="file" required>
+                <input type="file" name="file" class="custom-file-input" id="file" required autocomplete="file" value="{{ old('body') }}">
                 <label class="custom-file-label" >Choose file...</label>
               </div>
             <button type="submit" class="btn btn-success">Save</button>

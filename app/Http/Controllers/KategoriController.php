@@ -35,6 +35,12 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
+        $validate= $request->validate([
+            'kategori'=>['required','string'],         
+            'maksimal'=>['required','numeric'],      
+            'minimal'=>['required','numeric'],   
+        ]);
+
         $post =new Kategori();
         $file=$request->file('file');
         $nama_file=time()."_".$file->getClientOriginalName();
@@ -77,19 +83,25 @@ class KategoriController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $validate= $request->validate([
+            'kategori'=>['required','string'],         
+            'maksimal'=>['required','numeric'],      
+            'minimal'=>['required','numeric'],   
+        ]);
+
        $post = Kategori::find($id);
         if ($request->File('file')) {    
+            File::delete('data_file/'.$post->image);
+            File::delete('tumbnail/'.$post->image);
+
             $file=$request->file('file');
             $nama_file=time()."_".$file->getClientOriginalName();
-
             $tujuanupload='tumbnail';
             $resize_image=Image::make($file->getRealPath());
             $resize_image->resize(200,200,function($constraint){
             $constraint->aspectRatio();
             })->save($tujuanupload .'/'. $nama_file);
-
             $tujuanupload='data_file';
-
             $file->move($tujuanupload,$nama_file);
             $post->image= $nama_file;
         }

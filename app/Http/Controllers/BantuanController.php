@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\BantuanEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 
 class BantuanController extends Controller
@@ -18,15 +19,28 @@ class BantuanController extends Controller
 
     public function store(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'nama'=>'required',
+            'email'=>'required|email',
+            'pertanyaan'=>'required',
+        ]);
+
         $bantuan =new Bantuan();
         $bantuan->nama = $request->nama;
         $bantuan->email = $request->email;
         $bantuan->respons =0;
         $bantuan->pertanyaan = $request->pertanyaan;
         $bantuan->save();
-
-        return redirect('/');
+               
+        if ($request->page ==1) {
+            return redirect('/contact')->with('success','Bantuan sudah terkirim');
+        } else {
+            return redirect('/')->with('success','Bantuan sudah terkirim');
+        }
+        
     }
+
     public function respons($id)
     {
         $bantuan = Bantuan::findOrFail($id);

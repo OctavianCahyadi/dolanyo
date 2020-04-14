@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 
-
 @section('title')
     Create Kategori | DOLANYO
 @endsection
@@ -16,15 +15,30 @@
 
             <div class="form-group" >
                 <label for="">Nama Kategori</label>
-                <input type="text" class="form-control" name="kategori" placeholder="Nama Kategori">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="kategori" placeholder="Nama Kategori" required autocomplete="kategori">
+                @error('kategori')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group" >
                 <label for="">Minimal Peserta</label>
-                <input type="text" class="form-control" name="minimal" placeholder="Minimal Kategori">
+                <input type="text" class="form-control @error('minimal') is-invalid @enderror" name="minimal" placeholder="Minimal Kategori" required autocomplete="minimal">
+                @error('minimal')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group" >
                 <label for="">Maksimal Pesera</label>
-                <input type="text" class="form-control" name="maksimal" placeholder="Maksimal Kategori">
+                <input type="text" class="form-control @error('maksimal') is-invalid @enderror" name="maksimal" placeholder="Maksimal Kategori" required autocomplete="maksimal">
+                @error('maksimal')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             
             <div class="custom-file mb-3">

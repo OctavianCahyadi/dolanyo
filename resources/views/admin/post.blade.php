@@ -23,7 +23,7 @@
           <div class="col-md-4">       
               <label>Cari Data Post :</label>
               <div class="input-group">
-                <input type="text" class="form-control " placeholder="Search..." name="cari" value="{{ old('cari') }}" >
+                <input type="text" class="form-control " placeholder="Search..." name="cari" value="{{ old('cari') }}" required>
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <i class="now-ui-icons ui-1_zoom-bold"></i>
@@ -80,15 +80,35 @@
                      <td>
                      <a href="/post-edit/{{$row->id}}" class="btn btn-success">EDIT</a>
                     </td>
-                    <td>
-                      <form action="/post-delete/{{ $row->id }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                              <button type="submit"  class="btn btn-danger">DELETE</button>
-                      </form>  
+                    <td class="text-center">
+                      <a href="#myModal" class="trigger-btn" data-toggle="modal"><i class="fas fa-trash"></i> </a>
                   </td>
                  </tr>
+                    <!-- Modal HTML -->
+                    <div id="myModal" class="modal fade">
+                      <div class="modal-dialog modal-confirm">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                                  
+                            <h4 class="modal-title">Apakah anda yakin ?</h4>	
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Anda benar-benar ingin menghapus data ini ? Data yang sudah dihapus tidak dapat dikembalikan</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                            <form action="/post-delete/{{ $row->id }}" method="post">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                                    <button type="submit"  class="btn btn-danger">DELETE</button>
+                            </form>  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 @endforeach
+              
             </tbody>
             </table>
             <div class="d-flex justify-content-center">

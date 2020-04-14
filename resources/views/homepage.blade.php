@@ -60,7 +60,7 @@
           </div>
          </div>
          <div class="col-md-4">
-
+         
          </div>
          <div class="col-md-4 mt-4 text-center">
           <div class="card bg-transparent border-primary">
@@ -92,8 +92,15 @@
 background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(250,237,217,0.19698301683954833) 9%, rgba(255,234,184,0.1465628487723214) 47%, rgba(255,242,215,0.1997841372877276) 91%, rgba(255,255,255,1) 100%);
 }
   </style>   
+   
    <div class="main main-raised" >
      <div class="container" >
+      @if (session('success'))
+      <div class="alert alert-success alert-dismissible" role="alert" auto-close="8000" id="moo">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ session('success') }}
+      </div>
+      @endif
        <div class="section text-center" >
          <div class="row">
            <div class="col-md-8 ml-auto mr-auto">
@@ -144,20 +151,32 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(250,237,217,0.19
                  <div class="col-md-6">
                    <div class="form-group">
                      <label class="label-floating">Your Name</label>
-                     <input name= "nama" type="text" class="form-control">
-                   </div>
+                     <input name= "nama" type="text" class="form-control" name="name" value="" required autocomplete="name">
+                      @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror</div>
                  </div>
                  <div class="col-md-6">
                    <div class="form-group">
                      <label class="label-floating">Your Email</label>
-                     <input name="email" type="email" class="form-control">
-                   </div>
+                     <input name="email" type="email" class="form-control" name="name" value="" required autocomplete="email">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror</div>
                  </div>
                </div>
                <div class="form-group">
                  <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-                 <textarea name="pertanyaan" type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
-               </div>
+                 <textarea name="pertanyaan" id="pertanyaan" type="email" class="form-control" rows="4" id="exampleMessage" required autocomplete="email" >{{old('pertanyaan')}}</textarea>
+                 @error('pertanyaan')
+                   <span class="invalid-feedback" role="alert">
+                       <strong>{{ $message }}</strong>
+                   </span>
+                  @enderror</div>
                <div class="row">
                  <div class="col-md-4 ml-auto mr-auto text-center">
                    <button class="btn btn-primary btn-raised">

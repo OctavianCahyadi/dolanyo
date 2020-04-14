@@ -124,8 +124,6 @@ a.class, a.class:hover {
                             {{ session('success') }}
                         </div>
                     @endif
-
-  
       <div class="main main-raised">
         <div class="container align-items-center" >
           <div class="row justify-content-center">
@@ -136,7 +134,6 @@ a.class, a.class:hover {
                     <h3 class="card-title text-center mt-3 mb-3 text-dark font-weight-bold  "><strong> PT. DOLANYO Karya Wisata</strong></h3>   
                   </div>
                   <div class="card-body mt-0 ">
-                             
                     <p class="text-left"><strong></strong><p>        
                       <p class="mt-0 mb-0 text-left"> Pakeran Sendangmulyo<br>Minggir Sleman<br>Yogyakarta <strong> 55562 </strong><p>
                   </div>
@@ -165,19 +162,35 @@ a.class, a.class:hover {
           <div class="col-md-6">
             <div class="form-group">
               <label class="label-floating">Your Name</label>
-              <input name= "nama" type="text" class="form-control" value="{{Auth::user()->name}}">
+              <input name= "nama" type="text" class="form-control" name="name" value="{{Auth::user()->name}}" required autocomplete="name">
+              @error('nama')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label class="label-floating">Your Email</label>
-              <input name="email" type="email" class="form-control"  value="{{Auth::user()->email}}">
+              <input name="email" type="email" class="form-control" name="name" value="{{Auth::user()->email}}" required autocomplete="email">
+              <input name="page" type="page" class="form-control" name="page" value="1" type="hidden">
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+               @enderror
             </div>
           </div>
         </div>
         <div class="form-group">
           <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-          <textarea name="pertanyaan" type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+        <textarea name="pertanyaan" id="pertanyaan" type="email" class="form-control" rows="4" id="exampleMessage" required autocomplete="pertanyaan" >{{old('pertanyaan')}}</textarea>
+          @error('pertanyaan')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+           @enderror
         </div>
         <div class="row">
           <div class="col-md-4 ml-auto mr-auto text-center">

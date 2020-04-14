@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-require_once "/xampp/htdocs/jogjatt/vendor/autoload.php";
+require_once "/xampp/htdocs/dolanyo/vendor/autoload.php";
 
 use Phpml\Math\Distance\Euclidean;
 use Illuminate\Support\Facades\DB;

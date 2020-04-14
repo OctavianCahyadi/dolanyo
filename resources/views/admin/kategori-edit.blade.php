@@ -25,20 +25,35 @@
 
                                 <div class="form-group" >
                                     <label for="">Nama Kategori</label>
-                                    <input type="text" class="form-control" name="kategori" placeholder="Nama Kategori" value="{{ $kategori->kategori }}">
+                                    <input type="text" class="form-control  @error('name') is-invalid @enderror" name="kategori" placeholder="Nama Kategori" value="{{ $kategori->kategori }}">
+                                    @error('kategori')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group" >
                                     <label for="">Minimal Peserta</label>
-                                    <input type="text" class="form-control" name="minimal" placeholder="Minimal Kategori" value="{{ $kategori->minpeserta }}">
+                                    <input type="text" class="form-control @error('minimal') is-invalid @enderror" name="minimal" placeholder="Minimal Kategori" value="{{ $kategori->minpeserta }}">
+                                    @error('minimal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group" >
                                     <label for="">Maksimal Pesera</label>
-                                    <input type="text" class="form-control" name="maksimal" placeholder="Maksimal Kategori" value="{{ $kategori->maxpeserta }}">
+                                    <input type="text" class="form-control @error('maksimal') is-invalid @enderror" name="maksimal" placeholder="Maksimal Kategori" value="{{ $kategori->maxpeserta }}">
+                                    @error('maksimal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="custom-file mb-3">
-                                    <input type="file" name="file" class="custom-file-input" id="file" required>
+                                    <input type="file" name="file" class="custom-file-input" id="file">
                                     <label class="custom-file-label" >Choose file...</label>
                                   </div>
                                 <button type="submit" class="btn btn-success">Save</button>
