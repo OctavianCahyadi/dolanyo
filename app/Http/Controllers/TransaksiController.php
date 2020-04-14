@@ -91,7 +91,7 @@ class TransaksiController extends Controller
         
         $post->save();
         
-        return redirect('/home')->with('success','Pesanan Anda sudah kami terima, Silahkan tunggu konfirmasi Email dari kami. Terima kasih.');
+        return redirect('/profile/'.$request->user_id)->with('success','Pesanan Anda sudah kami terima, Silahkan tunggu konfirmasi Email dari kami. Terima kasih.');
     }
 
     public function cari(Request $request)

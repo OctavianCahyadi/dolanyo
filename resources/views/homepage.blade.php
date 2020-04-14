@@ -104,59 +104,33 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(250,237,217,0.19
          <div class="container">
           <div class="mx-auto">
              <div class="container text-center"  style="margin-top:30px">
-             <h2> Kenapa Harus Dolanyo ? </h2>
-             
-             <div class="card card-nav-tabs card-plain">
-             <!-- Nav tabs -->
-             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                 <li class="nav-item">
-                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mudah</a>
-                 </li>
-                 <li class="nav-item">
-                 <a class="nav-link  " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Akomodasi</a>
-                 </li>
-                 <li class="nav-item">
-                 <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Harga</a>
-                 </li>
-                 <li class="nav-item">
-                 <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Destinasi</a>
-                 </li>
-             </ul>
+              <div class="section text-center" >
          
-             <!-- Tab panes -->
-             <div class="tab-content text-center">
-                 <div class="tab-pane active " id="home" role="tabpanel" aria-labelledby="home-tab"><img style="width: 800px; height: auto;  box-shadow: 5px 5px 10px 7px rgba(0,0,0,0.01), -5px -5px 30px 7px rgba(0,0,0,0.12);border-radius:25px;" src="../assets/img/mudah.png" alt=""></div>
-                 <div class="tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab"> <img style="width: 800px; height: auto;  box-shadow: 5px 5px 10px 7px rgba(0,0,0,0.01), -5px -5px 30px 7px rgba(0,0,0,0.12);border-radius:25px;" src="../assets/img/akomodasi.png" alt=""></div>
-                 <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab"><img style="width: 800px; height: auto;  box-shadow: 5px 5px 10px 7px rgba(0,0,0,0.01), -5px -5px 30px 7px rgba(0,0,0,0.12);border-radius:25px;" src="../assets/img/harga.png" alt=""></div>
-                 <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab"><img style="width: 800px; height: auto;  box-shadow: 5px 5px 10px 7px rgba(0,0,0,0.01), -5px -5px 30px 7px rgba(0,0,0,0.12);border-radius:25px;" src="../assets/img/destinasi.png" alt=""></div>
-             </div>
-         </div> 
+                <div class="team">
+                  <div class="row">
+                    <div class="container text-center">
+                      <div class="row">
+                       <div class="col-md-3 ">
+                       </div>
+                       <div class="col-md-6">              
+                         <div class="card bg-light">
+                           <a href="/home">
+                           <img class="mt-5 mb-5" style="width: 400px; height: auto;" src="../assets/img/dolanyologo.png" alt="">
+                         </a>
+                         </div>
+                       </div>
+                       <div class="col-md-3 ">              
+                       </div>
+                     </div>
+                     </div>
+                    </div>
+                  </div>
+                </div>
         </div>
      </div>
      </div>
        
-       <div class="section text-center" >
-         
-         <div class="team">
-           <div class="row">
-             <div class="container text-center">
-               <div class="row">
-                <div class="col-md-3 ">
-                </div>
-                <div class="col-md-6">              
-                  <div class="card bg-light">
-                    <a href="/home">
-                    <img class="mt-5 mb-5" style="width: 400px; height: auto;" src="../assets/img/dolanyologo.png" alt="">
-                  </a>
-                  </div>
-                </div>
-                <div class="col-md-3 ">              
-                </div>
-              </div>
-              </div>
-             </div>
-           </div>
-         </div>
+       
        
        <div class="section section-contacts text-left" >
          <div class="row">
