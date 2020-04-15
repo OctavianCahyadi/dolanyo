@@ -24,6 +24,9 @@ class DashboardController extends Controller
         
     public function registerupdate(Request $request, $id)
     {
+        $validate= $request->validate([
+            'username'=>['required','string'],           
+        ]);
         $users =User::find($id);
         $users->name=$request->input('username');
         $users->usertype=$request->input('usertype');
@@ -61,6 +64,12 @@ class DashboardController extends Controller
 
     public function updatebyuser(Request $request)
     {
+        $validate= $request->validate([
+            'nama'=>['required','string'],
+            'handphone'=>['required','numeric'],
+            'email'=>['required','email'],         
+        ]);
+
         $users =User::find($request->id);
         $users->name=$request->nama;
         $users->phone=$request->handphone;

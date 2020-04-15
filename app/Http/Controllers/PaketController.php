@@ -66,6 +66,15 @@ class PaketController extends Controller
 
     public function store(Request $request)
     {
+        $validate= $request->validate([
+            'title'=>['required','string','unique:pakets'], 
+            'deskripsi'=>['required'],   
+            'overview'=>['required'],    
+            'fasilitas'=>['required'],  
+            'ketentuan'=>['required'],  
+            'harga_mulai'=>['required','numeric'],
+        ]);
+
         $post=new Paket;
         $file=$request->file('file');
         $nama_file=time()."_".$file->getClientOriginalName();
@@ -76,6 +85,7 @@ class PaketController extends Controller
         })->save($tujuanupload .'/'. $nama_file);
         $tujuanupload='data_file';
         $file->move($tujuanupload,$nama_file);
+
         $post->pegunungan = $request->ranting1; 
         $post->bangunan = $request->ranting2; 
         $post->sungai = $request->ranting3; 
@@ -115,6 +125,15 @@ class PaketController extends Controller
    
     public function update(Request $request, $id)
     {
+        $validate= $request->validate([
+            'title'=>['required','string'], 
+            'deskripsi'=>['required'],   
+            'overview'=>['required'],    
+            'fasilitas'=>['required'],  
+            'ketentuan'=>['required'],  
+            'harga_mulai'=>['required','numeric'],
+        ]);
+
         $post = Paket::find($id);
         if ($request->File('image')) {
             File::delete('data_file/'.$post->image);

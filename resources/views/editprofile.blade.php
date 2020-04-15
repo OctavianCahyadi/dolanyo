@@ -137,16 +137,31 @@ a.class, a.class:hover {
                       {{ csrf_field() }}
                       {{ method_field('PUT') }}
                       <div class="md-form mb-2">
-                        <i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-name"><span>&nbsp;</span>Nama Lengkap</label>
-                        <input type="text" id="orangeForm-name" name="nama" class="form-control validate" value="{{ Auth::user()->name }}">
+                        <i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-nama"><span>&nbsp;</span>Nama Lengkap</label>
+                        <input type="text" id="orangeForm-name" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ Auth::user()->name }}" required autocomplete="nama">
+                        @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                       </div>
                       <div class="md-form mb-2">
                         <i class="fas fa-phone prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-hp"><span>&nbsp;</span>No Handphone</label>
-                        <input type="text" id="orangeForm-phone" name="handphone" class="form-control validate" value="{{ Auth::user()->phone }}">
+                        <input type="text" id="orangeForm-phone" name="handphone" class="form-control @error('handphone') is-invalid @enderror" value="{{ Auth::user()->handphone }}" required autocomplete="phone">
+                        @error('handphone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                       </div>
                       <div class="md-form mb-2">
                         <i class="fas fa-envelope"></i><label data-error="wrong" data-success="right" for="orangeForm-hp"><span>&nbsp;</span>Email</label>
-                        <input type="text" id="orangeForm-email" name="email" class="form-control validate" value="{{ Auth::user()->email }}">
+                        <input type="text" id="orangeForm-email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ Auth::user()->email }}" required autocomplete="email">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                       </div>
                       <input type="hidden" id="orangeForm-id" name="id" class="form-control validate" value="{{ Auth::user()->id }}">
                       <button class="btn btn-info">Save</button></a>

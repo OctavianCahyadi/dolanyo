@@ -17,38 +17,68 @@
 
             <div class="form-group" >
                 <label for="">Judul</label>
-                <input value ="{{$paket->title}}" type="text" class="form-control" name="title" placeholder="Judul Paket">
+                <input value ="{{$paket->title}}" type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Judul Paket" required autocomplete="title">
+                @error('title')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
 
             <div class="form-group" >
                 <label for="">Deskripsi</label>
-                <input value ="{{$paket->deskripsi}}" type="text" class="form-control" name="deskripsi" placeholder="Deskripsi Paket">
+                <input value ="{{$paket->deskripsi}}" type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" placeholder="Deskripsi Paket" required autocomplete="deskripsi">
+                @error('deskripsi')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
             
             <div class="form-group=">
                 <label for="">Overview</label>
                 <div class="container mb-3">
-                    <textarea  name="overview" class="form-control" rows="2" cols="2" placeholder="overview" id="editor1">{!!$paket->overview!!}</textarea>
-                    </div>
+                    <textarea  name="overview" class="form-control @error('overview') is-invalid @enderror" rows="2" cols="2" placeholder="overview" id="editor1" required autocomplete="overview">{!!$paket->overview!!}</textarea>
+                    @error('overview')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror    
+                </div>
             </div>
 
             <div class="form-group=">
                 <label for="">Fasilitas</label>
                 <div class="container mb-3">
-                    <textarea name="fasilitas" class="form-control" rows="2" cols="2" placeholder="fasilitas" id="editor2">{!!$paket->fasilitas!!}</textarea>
-                    </div>
+                    <textarea name="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" rows="2" cols="2" placeholder="fasilitas" id="editor2" required autocomplete="fasilitas">{!!$paket->fasilitas!!}</textarea>
+                    @error('fasilitas')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
             </div>
 
             <div class="form-group=">
                 <label for="">Ketentuan</label>
                 <div class="container mb-3">
-                    <textarea name="ketentuan" class="form-control" rows="2" cols="2" placeholder="ketentuan" id="editor3">{!!$paket->ketentuan!!}</textarea>
-                    </div>
+                    <textarea name="ketentuan" class="form-control @error('ketentuan') is-invalid @enderror" rows="2" cols="2" placeholder="ketentuan" id="editor3" required autocomplete="ketentuan">{!!$paket->ketentuan!!}</textarea>
+                    @error('ketentuan')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
             </div>
 
             <div class="form-group" >
                 <label for="">Harga Mulai</label>
-                <input value ="{{$paket->harga_mulai}}" type="text" class="form-control" name="harga_mulai" placeholder="Harga Mulai">
+                <input value ="{{$paket->harga_mulai}}" type="text" class="form-control @error('harga_mulai') is-invalid @enderror" name="harga_mulai" placeholder="Harga Mulai" required autocomplete="harga_mulai">
+                @error('harga_mulai')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             </div>
 
             <h6><span class="badge badge-neutral">Ranting</span></h5>
