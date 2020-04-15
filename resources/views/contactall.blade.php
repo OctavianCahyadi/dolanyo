@@ -141,8 +141,8 @@ a.class, a.class:hover {
                       <p class="mt-0 mb-0 text-left"> Pakeran Sendangmulyo<br>Minggir Sleman<br>Yogyakarta <strong> 55562 </strong><p>
                   </div>
                   <div class="card-footer text-left">
-                    <button class="btn btn-info btn-mute"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
-                    <button class="btn btn-primary btn-mute"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
+                    <button class="btn btn-info btn-mute" style="pointer-events: none;"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
+                    <button class="btn btn-primary btn-mute" style="pointer-events: none;"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
                   </div>
                 </div>
               </div>

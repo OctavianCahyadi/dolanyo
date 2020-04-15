@@ -190,10 +190,26 @@ a.class, a.class:hover {
 </div>
 </div>
 </div>
+@php
+if ( Auth::user()->pantai==NULL) {
+  $url='/rekomendasi0';
+  $link='Rekomendasi';
+}else {
+  $id= Auth::user()->id;
+  $url='/showrekomendasi/'.$id;
+  $link='Rekomendasi';
+}
+@endphp
 
+<div class="container text-center"  style="margin-top:30px">
+  <a href="{{ $url}}" class="btn btn-lg btn-primary btn-rounded mb-4 " >Lihat Rekomendasi Paket Wisata Dari Kami Untuk Anda</a>
+  </div>
 
 <div class="container mb-5 align-items-center" >
   <div class="row justify-content-center">
+    <div class="container text-center"  style="margin-top:30px">
+      <h2> Nikmati Paket Yang Kami Tawarkan </h2>
+      </div>
     @foreach ($kategori as $item)
     <a class="class" href="/paket/{{$item->id}}">
       <div class="card1 1 text-center ml-2 mr-2">

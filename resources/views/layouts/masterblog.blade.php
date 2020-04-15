@@ -116,19 +116,19 @@
             </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+          <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="" target="_blank">
             <i class="fab fa-twitter"></i>
             <p class="d-lg-none d-xl-none">Twitter</p>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+          <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="" target="_blank">
             <i class="fab fa-facebook-square"></i>
             <p class="d-lg-none d-xl-none">Facebook</p>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+          <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="" target="_blank">
             <i class="fab fa-instagram"></i>
             <p class="d-lg-none d-xl-none">Instagram</p>
           </a>
@@ -166,8 +166,8 @@
 
        
          <ul>
-           <button class="btn btn-info btn-mute"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
-           <button class="btn btn-primary btn-mute"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
+           <button class="btn btn-info btn-mute" style="pointer-events: none;"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
+           <button class="btn btn-primary btn-mute" style="pointer-events: none;"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
          </ul>
          <ul>
           &copy;         

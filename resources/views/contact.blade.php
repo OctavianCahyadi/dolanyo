@@ -138,8 +138,8 @@ a.class, a.class:hover {
                       <p class="mt-0 mb-0 text-left"> Pakeran Sendangmulyo<br>Minggir Sleman<br>Yogyakarta <strong> 55562 </strong><p>
                   </div>
                   <div class="card-footer text-center">
-                    <button class="btn btn-info btn-mute"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
-                    <button class="btn btn-primary btn-mute"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
+                    <button class="btn btn-info btn-mute" style="pointer-events: none;"><i class="fa fa-whatsapp"></i>&nbsp; +62 81215405375 </button>
+                    <button class="btn btn-primary btn-mute" style="pointer-events: none;"><i class="fa fa-envelope"></i>&nbsp; help@dolanyo.com </button>
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ a.class, a.class:hover {
             <div class="form-group">
               <label class="label-floating">Your Email</label>
               <input name="email" type="email" class="form-control" name="name" value="{{Auth::user()->email}}" required autocomplete="email">
-              <input name="page" type="page" class="form-control" name="page" value="1" type="hidden">
+              <input name="page" class="form-control" name="page" value="1" type="hidden">
               @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
