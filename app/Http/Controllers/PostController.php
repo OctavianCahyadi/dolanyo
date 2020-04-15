@@ -119,7 +119,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $validate= $request->validate([
-            'title'=>['required','string','unique:posts'], 
+            'title'=>['required','string'], 
             'body'=>['required','string'],           
         ]);
         $posts = Post::find($id);
