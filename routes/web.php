@@ -77,7 +77,7 @@ Route::group(['middleware'=>['auth','admin']],function(){
     // Route::get('/dashboard', function(){
     //     return view('admin.post');
     // });
-    Route::get('/back','PageCOntroller@dashboard')->name('dashboard');
+    Route::get('/back','PageCOntroller@dashboard');
 
     Route::get('/admin/role-register','Admin\DashboardController@registered')->name('show.user');;
     Route::get('/role-edit/{id}','Admin\DashboardController@registeredit');
