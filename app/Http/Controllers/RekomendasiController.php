@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-require_once "/home/dolanyoc/app/dolanyo/vendor/autoload.php";
+//require_once "/home/dolanyoc/app/dolanyo/vendor/autoload.php";
 
 use Phpml\Math\Distance\Euclidean;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +39,7 @@ class RekomendasiController extends Controller
 
     public function input3(Request $request,$id)
     {
+        Rekomendasi :: where ('user_id',$id)->delete();
         $user = User::find($id);
         $user->pantai=$request->input('ranting');
         $user->update();
