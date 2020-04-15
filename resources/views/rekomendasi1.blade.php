@@ -86,19 +86,20 @@
     
     <div class="row mt-4" id="row1">
       <div class="col-md-4 text-right">
-        <h5><span class="badge badge-light">0</span></h5>
+        <h5><span class="badge badge-primary">0</span></h5>
       </div>
       <div class="col-md-4 mt-1">
         <div class="slidecontainer">
           <form action="/inputrekomendasi1/{{ Auth::user()->id }}" method="post"  enctype="multipart/form-data" >
             {{ csrf_field() }}
-          <input type="range" min="1" max="4" value="50" class="slider" id="myRange" name="ranting">
+          <input type="range" min="0" max="4" value="50" class="slider" id="myRange" name="ranting">
         </div>
       </div>
       <div class="col-md-4 text-left">
-        <h5><span class="badge badge-light">4</span></h5>
+        <h5><span class="badge badge-primary">4</span></h5>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-12 text-center mb-0 mt-0">
         <label class="badge font-weight-bold" style="color: white">Nilai Ranting: <strong> &nbsp;&nbsp;<span id="demo" style=" font-size: 150%;"></span>&nbsp;&nbsp;</strong></label>
