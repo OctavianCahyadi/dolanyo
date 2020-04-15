@@ -51,7 +51,7 @@
         <a href="/home" class="simple-text logo-normal">
           <img style="width: 150px; height: auto;" src="../assets/img/dolanyologo.png" alt="">
         </a>
-        <a href="/admin" class="simple-text logo-normal">
+        <a href="/backadmin" class="simple-text logo-normal">
           Dashboard Admin
         </a>
       </div>
