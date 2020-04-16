@@ -198,7 +198,7 @@
                                     <td align="center" style="padding: 25px 0 15px 0;">
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
-                                            <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7"> <a href="http://127.0.0.1:8000/kategoriall" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 15px 30px; border: 1px solid #F44336; display: block;">Cek Di Sini</a> </td>
+                                            <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7"> <a href="www.dolanyo.com/kategoriall" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: #F44336; padding: 15px 30px; border: 1px solid #F44336; display: block;">Cek Di Sini</a> </td>
                                             </tr>
                                         </table>
                                     </td>

@@ -28,7 +28,7 @@ class BatalTransaksiEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('DOLANYO@gmail.com')
+        return $this->from('support@dolanyo.com')
         ->view('transaksiemailbatal')
 
         ->with([
