@@ -188,7 +188,7 @@ a.class, a.class:hover {
                         echo '<td class="text-center"><h7><span class="badge badge-danger">Dibatalkan</span></h7></td>';
                       }
                        else {
-                        echo '<td class="text-center"><h7><span class="badge badge-success">Sukses</span></h7></td>';
+                        echo '<td class="text-center"><h7><span class="badge badge-success">Suskses</span></h7></td>';
                       }
                       
                    ?>

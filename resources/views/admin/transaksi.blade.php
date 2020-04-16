@@ -89,7 +89,7 @@
                           echo '<td class="text-center"><h7><span class="badge badge-danger">Dibatalkan</span></h7></td>';
                         }
                          else {
-                          echo '<td class="text-center"><h7><span class="badge badge-success">Confirmed</span></h7></td>';
+                          echo '<td class="text-center"><h7><span class="badge badge-success">sukses</span></h7></td>';
                         }                        
                      ?>
                      <td class="text-center">

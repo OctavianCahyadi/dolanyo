@@ -133,10 +133,14 @@
                                                 <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> Jumlah Peserta </td>
                                                 <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> {{$peserta}} Orang</td>
                                             </tr>
+                                            <tr>
+                                                <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;"> Harga total </td>
+                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">Rp. {{number_format(($hargapaket*$peserta), '2', ',', '.')}} </td>
+                                            </tr>
                                            
                                             <tr>
                                                 <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;"> Pajak 10% </td>
-                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">Rp. {{number_format($harga/10, '2', ',', '.')}} </td>
+                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">Rp. {{number_format($hargapaket*$peserta/10, '2', ',', '.')}} </td>
                                             </tr>
                                         </table>
                                     </td>
@@ -146,7 +150,7 @@
                                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                             <tr>
                                                 <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;"> TOTAL </td>
-                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">Rp. {{number_format($harga+($harga/10), '2', ',', '.')}}</td>
+                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">Rp. {{number_format(($harga), '2', ',', '.')}}</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -204,6 +208,22 @@
                                                 </tr>
                                             </table>
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="font-size:0;">
+                                        <div style="display:inline-block; max-width:90%; min-width:240px; vertical-align:top; width:100%;">
+                                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
+                                                <tr>
+                                                    <td align="center" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                        <p style="font-weight: 800;">Silahkan Transfer Pembayaran melalui rekening :</p>
+                                                        <p style="font-weight: 800;">BNI : 0465255337 a.n Anggun Dwi Cahyadi</p>
+                                                        <p> Silahkan konfirmasi ke No. WA 081215405375 untuk mengirimkan bukti transaksi minimal sebesar 30% dari total biaya yaitu  sebesar <p>
+                                                        <p style="font-weight: 600;">Rp. {{number_format($harga*30/100, '2', ',', '.')}}</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>                                        
                                     </td>
                                 </tr>
                             </table>

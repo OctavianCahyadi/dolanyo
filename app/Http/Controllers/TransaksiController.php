@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Paket;
 use Illuminate\Http\Request;
 use App\Transaksi;
 use App\Mail\TransaksiEmail;
@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class TransaksiController extends Controller
 {
     public function send(Request $request){
+        $hargapaket = DB::table('pakets')->where('id', $request->idpaket)->value('harga_mulai');
         $data = [
             'nama' => $request->nama,
             'handphone' =>$request->handphone,
@@ -23,6 +24,7 @@ class TransaksiController extends Controller
             'deskripsi' =>$request->deskripsi,
             'idtransaksi' =>$request->idtransaksi,
             'harga' =>$request->harga,
+            'hargapaket' =>$hargapaket,
             'idpaket' =>$request->idpaket,
             'tempat' =>$request->tempat,
           ];
@@ -83,7 +85,14 @@ class TransaksiController extends Controller
         $post->pakets_id = $paket_id;
         $post->handphone = $request->handphone;
         $post->peserta = $request->peserta;
-        $post->harga = $request->harga;
+        
+       
+        $total=$request->harga*$request->peserta;
+        
+        $hargapajak=$total/10;
+        $totalharga=$total+$hargapajak;
+
+        $post->harga = $totalharga;
         $post->paket = $request->paket;
         $post->tanggal = $request->tanggal;
         $post->tempat = $request->tempat;

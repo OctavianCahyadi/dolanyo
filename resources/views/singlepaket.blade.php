@@ -59,9 +59,13 @@
           <div class="row">
             <div class="col-lg-10 mx-auto">
               @php
-                  $harga=$paket->harga_mulai;
+                  $harga=$paket->harga_mulai*$kategori->maxpeserta;
+                  $pajak=$harga/10;
                   if (is_numeric($harga)){
                     $format_harga = number_format($harga, '0', ',', '.');                    
+                  }
+                  if (is_numeric($pajak)){
+                    $format_pajak = number_format($pajak, '0', ',', '.');                    
                   }
                   $total=$paket->harga_mulai * $kategori->maxpeserta;
               @endphp
@@ -70,14 +74,23 @@
                   var price = "<?php echo $total ?>";  
                   var harga_mulai= "<?php echo $paket->harga_mulai ?>"; 
                   var member = document.getElementById("contactform-member").value;  
-                  var calculate = price / member;
-                  var temp = Math.ceil(calculate);
-                  var harga= Math.round(temp/1000)*1000;
-                  var reverse = harga.toString().split('').reverse().join(''),
+                  var max="<?php echo $kategori->maxpeserta ?>"; 
+                  var harga=harga_mulai*member;
+                 
+                  // var calculate = price / member;
+                  // var temp = Math.ceil(calculate);
+                  // var harga= Math.round(temp/1000)*1000;
+                  var pajak=harga/10;
+                  var reverse = harga.toString().split('').reverse().join('');
+                  var reversepajak = pajak.toString().split('').reverse().join('');
+                  ribuanpajak = reversepajak.match(/\d{1,3}/g);
+                  ribuanpajak = ribuanpajak.join('.').split('').reverse().join('');
+
                   ribuan = reverse.match(/\d{1,3}/g);
                   ribuan = ribuan.join('.').split('').reverse().join('');
                   document.getElementById("member-kosten").innerHTML = ribuan;
                   document.getElementById("peserta").innerHTML = member;
+                  document.getElementById("pajak").innerHTML = ribuanpajak;
                     }
                 </script>
 
@@ -85,7 +98,8 @@
               <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
               <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
               <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
-              <p class="lead">Harga <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> /Pax untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta.</p> 
+              <p class="lead">Total Harga yang harus dibayar <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta *.</p> 
+              <label class="" for="contactform-member"><span class="contact_form_span">*Total Harga belum ditambah pajak 10% Rp.<strong><span id="pajak">{!! $format_pajak !!}</span></strong></span> </label>
            
               <div class="card card-plain">
                 <div class="">
@@ -173,7 +187,7 @@
                
 
                 <div class="md-form mb-3">
-                  <input type="hidden" class="form-control" name="harga" placeholder="Harga" value="<?php echo $totalharga; ?>">
+                  <input type="hidden" class="form-control" name="harga" placeholder="Harga" value="<?php echo $paket->harga_mulai; ?>">
                 </div>
 
                 <div class="md-form mb-3">

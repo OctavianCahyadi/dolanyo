@@ -43,6 +43,7 @@ class TransaksiEmail extends Mailable
             'deskripsi' => $this->data['deskripsi'],
             'idtransaksi' => $this->data['idtransaksi'],
             'harga' => $this->data['harga'],
+            'hargapaket' => $this->data['hargapaket'],
             'idpaket' => $this->data['idpaket'],
             'tempat' => $this->data['tempat'],
             ]);
