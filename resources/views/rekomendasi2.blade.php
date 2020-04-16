@@ -54,10 +54,13 @@
   cursor: pointer;
 }
 .mycustom-jumbotron {
-  
-  width: 1080px;
-  height: 400px;
-  margin: 0 auto
+  padding-top: 18%;
+    padding-bottom: 18%;
+    background: url('../assets/img/sungai.jpg') ; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: cover;
 }
 </style>
 

@@ -56,7 +56,7 @@
 .mycustom-jumbotron {
   padding-top: 18%;
     padding-bottom: 18%;
-    background: url('../assets/img/bangunan.png') ; 
+    background: url('../assets/img/bangunan.jpg') ; 
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
