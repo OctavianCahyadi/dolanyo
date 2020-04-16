@@ -79,13 +79,11 @@
                   var max2= Math.round(temp);
                   //var harga=harga_mulai*member;
                   var harga=Number(harga_mulai);
-
                   if (member < max2) {
                     harga=harga+(harga*25/100);
                   }
 
                   harga1=harga*member;
-
                   // var calculate = price / member;
                   // var temp = Math.ceil(calculate);
                   // var harga= Math.round(temp/1000)*1000;
@@ -94,10 +92,8 @@
                   var reversepajak = pajak.toString().split('').reverse().join('');
                   ribuanpajak = reversepajak.match(/\d{1,3}/g);
                   ribuanpajak = ribuanpajak.join('.').split('').reverse().join('');
-
                   // var reversepaket = harga.toString().split('').reverse().join('');
                   // ribuanpaket = reversepaket.match(/\d{1,3}/g);
-
                   ribuan = reverse.match(/\d{1,3}/g);
                   ribuan = ribuan.join('.').split('').reverse().join('');
                   document.getElementById("member-kosten").innerHTML = ribuan;
