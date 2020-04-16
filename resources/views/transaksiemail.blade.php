@@ -134,6 +134,10 @@
                                                 <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> {{$peserta}} Orang</td>
                                             </tr>
                                             <tr>
+                                                <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;"> Harga /Pax </td>
+                                                <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">Rp. {{number_format(($hargapaket), '2', ',', '.')}} </td>
+                                            </tr>
+                                            <tr>
                                                 <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;"> Harga total </td>
                                                 <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">Rp. {{number_format(($hargapaket*$peserta), '2', ',', '.')}} </td>
                                             </tr>
@@ -218,7 +222,7 @@
                                                     <td align="center" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                                                         <p style="font-weight: 800;">Silahkan Transfer Pembayaran melalui rekening :</p>
                                                         <p style="font-weight: 800;">BNI : 0465255337 a.n Anggun Dwi Cahyadi</p>
-                                                        <p> Silahkan konfirmasi ke No. WA 081215405375 untuk mengirimkan bukti transaksi minimal sebesar 30% dari total biaya yaitu  sebesar <p>
+                                                        <p> Silahkan konfirmasi ke No. WA 081215405375 untuk mengirimkan bukti transaksi minimal pembayaran sebesar 30% dari total biaya<p>
                                                         <p style="font-weight: 600;">Rp. {{number_format($harga*30/100, '2', ',', '.')}}</p>
                                                     </td>
                                                 </tr>

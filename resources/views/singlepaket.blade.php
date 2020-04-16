@@ -75,22 +75,35 @@
                   var harga_mulai= "<?php echo $paket->harga_mulai ?>"; 
                   var member = document.getElementById("contactform-member").value;  
                   var max="<?php echo $kategori->maxpeserta ?>"; 
-                  var harga=harga_mulai*member;
-                 
+                  var temp=max/2;
+                  var max2= Math.round(temp);
+                  //var harga=harga_mulai*member;
+                  var harga=Number(harga_mulai);
+
+                  if (member < max2) {
+                    harga=harga+(harga*25/100);
+                  }
+
+                  harga1=harga*member;
+
                   // var calculate = price / member;
                   // var temp = Math.ceil(calculate);
                   // var harga= Math.round(temp/1000)*1000;
-                  var pajak=harga/10;
-                  var reverse = harga.toString().split('').reverse().join('');
+                  var pajak=harga1/10;
+                  var reverse = harga1.toString().split('').reverse().join('');
                   var reversepajak = pajak.toString().split('').reverse().join('');
                   ribuanpajak = reversepajak.match(/\d{1,3}/g);
                   ribuanpajak = ribuanpajak.join('.').split('').reverse().join('');
+
+                  // var reversepaket = harga.toString().split('').reverse().join('');
+                  // ribuanpaket = reversepaket.match(/\d{1,3}/g);
 
                   ribuan = reverse.match(/\d{1,3}/g);
                   ribuan = ribuan.join('.').split('').reverse().join('');
                   document.getElementById("member-kosten").innerHTML = ribuan;
                   document.getElementById("peserta").innerHTML = member;
                   document.getElementById("pajak").innerHTML = ribuanpajak;
+                  document.getElementById("paket").innerHTML = harga;
                     }
                 </script>
 
@@ -98,6 +111,7 @@
               <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
               <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
               <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
+              <p class="lead">Harga paket <strong>Rp. <span id="paket">{!! $paket->harga_mulai !!}</span> /pax</strong></p>
               <p class="lead">Total Harga yang harus dibayar <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta *.</p> 
               <label class="" for="contactform-member"><span class="contact_form_span">*Total Harga belum ditambah pajak 10% Rp.<strong><span id="pajak">{!! $format_pajak !!}</span></strong></span> </label>
            
@@ -193,10 +207,15 @@
                 <div class="md-form mb-3">
                   <input type="hidden" class="form-control" name="paket" placeholder="paket" value="{{ $paket->title }}">
                 </div>
+                
+                <div class="md-form mb-3">
+                  <input type="hidden" class="form-control" name="max" placeholder="max" value="{{ $kategori->maxpeserta }}">
+                </div>
 
                 <div class="md-form mb-3">
                   <input type="hidden" class="form-control" name="user_id" placeholder="user_id" value="{{ Auth::user()->id }}">
                 </div>
+                
 
                 <div class="md-form mb-3">
                   <i class="fas fa-calendar-alt prefix grey-text"></i><label data-error="wrong" data-success="right" for="date-picker-example">Tanggal Rencana</label>

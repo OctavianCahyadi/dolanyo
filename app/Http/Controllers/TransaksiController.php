@@ -13,6 +13,13 @@ class TransaksiController extends Controller
 {
     public function send(Request $request){
         $hargapaket = DB::table('pakets')->where('id', $request->idpaket)->value('harga_mulai');
+        $kategori= DB::table('pakets')->where('id', $request->idpaket)->value('kategori');
+        $max = DB::table('kategoris')->where('id', $kategori)->value('maxpeserta');
+        $max2=$max/2;
+        if ($request->peserta < $max2) {
+            $hargapaket=$hargapaket+($hargapaket*25/100);
+          }
+
         $data = [
             'nama' => $request->nama,
             'handphone' =>$request->handphone,
@@ -85,10 +92,14 @@ class TransaksiController extends Controller
         $post->pakets_id = $paket_id;
         $post->handphone = $request->handphone;
         $post->peserta = $request->peserta;
-        
-       
-        $total=$request->harga*$request->peserta;
-        
+        $harga=$request->harga;
+        $max2=$request->max/2;
+
+        if ($request->peserta < $max2) {
+            $harga=$harga+($harga*25/100);
+          }
+                 
+        $total=$harga*$request->peserta;
         $hargapajak=$total/10;
         $totalharga=$total+$hargapajak;
 
