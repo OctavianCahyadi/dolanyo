@@ -41,11 +41,15 @@
          <div class="row">
            <div class="col-lg-10 mx-auto">
              @php
-                 $harga=$paket->harga_mulai;
-                 if (is_numeric($harga)){
-                   $format_harga = number_format($harga, '0', ',', '.');                    
-                 }
-                 $total=$paket->harga_mulai * $kategori->maxpeserta;
+                 $harga=$paket->harga_mulai*$kategori->maxpeserta;
+                  $pajak=$harga/10;
+                  if (is_numeric($harga)){
+                    $format_harga = number_format($harga, '0', ',', '.');                    
+                  }
+                  if (is_numeric($pajak)){
+                    $format_pajak = number_format($pajak, '0', ',', '.');                    
+                  }
+                  $total=$paket->harga_mulai * $kategori->maxpeserta;
              @endphp
              <script>
               function fun(){                  
