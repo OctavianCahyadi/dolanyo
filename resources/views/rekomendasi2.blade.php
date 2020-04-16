@@ -18,70 +18,73 @@
   <link href="../assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
-<style>
-  .slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
-
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
-.mycustom-jumbotron {
-  padding-top: 18%;
-    padding-bottom: 18%;
-    background: url('../assets/img/sungai.jpg') ; 
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: cover;
-}
-</style>
+  <style>
+    .slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #ffffff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  .mycustom-jumbotron {
+    
+    
+      padding-top: 18%;
+      padding-bottom: 18%;
+      background: url('../assets/img/sungai.jpg') ; 
+      -webkit-background-size: 100% 100%;
+      -moz-background-size: 100% 100%;
+      -o-background-size: 100% 100%;
+      background-size: cover;
+  }
+  </style>
 
   @endsection
 
 
-@section('content')
-<div class="page-body " data-parallax="true" style="background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('../assets/img/landingpage.png')">
-  <div class="row">
-      <div class="col-md-2"> </div>
-      <div class="col-md-8 mb-0 mt-3 text-center">
-        <h1 class="title" style="color: white"><strong> Tell Us About You </strong></h1>
+  @section('content')
+  <div class="page-body " data-parallax="true" style="background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url('../assets/img/landingpage.png')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8 mb-0 mt-3 text-center">
+          <h1 class="title" style="color: white"><strong> Tell Us About You </strong></h1>
+        </div>
+        <div class="col-md-2 " >
+          <a href="/home">
+          <button href type="submit" class="btn btn-default btn-large " style="position:absolute; bottom:25px" >Skip Recommendations</button>
+          </a>
+        </div>
       </div>
-      <div class="col-md-2 " >
-        <a href="/home">
-        <button href type="submit" class="btn btn-default btn-large " style="position:absolute; bottom:25px" >Skip Recommendations</button>
-        </a>
+      <div class="jumbotron mycustom-jumbotron text-center">  
       </div>
-    </div>
-    <div class="jumbotron mycustom-jumbotron text-center">
-    </div>
     
     <div class="row mt-4" id="row1">
       <div class="col-md-4 text-right">
