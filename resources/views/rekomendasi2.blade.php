@@ -81,7 +81,6 @@
       </div>
     </div>
     <div class="jumbotron mycustom-jumbotron text-center">
-      <h2 class="title">Wisata Alam Sungai</h2>      
     </div>
     
     <div class="row mt-4" id="row1">
