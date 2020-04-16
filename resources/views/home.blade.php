@@ -140,7 +140,7 @@ a.class, a.class:hover {
                 
                 </div>
                 <div class="carousel-item active">
-                  <img class="d-block  img-fluid" src="../../../gallery/slide2.png" alt="Second slide">
+                  <img class="d-block  img-fluid" src="../../../gallery/slider2.jpg" alt="Second slide">
                   
                 </div>
                 <div class="carousel-item">
