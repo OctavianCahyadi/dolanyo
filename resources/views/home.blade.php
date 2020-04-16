@@ -136,7 +136,7 @@ a.class, a.class:hover {
               </ol>
               <div class="carousel-inner" role="listbox">
                 <div class="carousel-item">
-                    <img class="d-block  img-fluid" src="../../../gallery/slide1.png" alt="First slide">
+                    <img class="d-block  img-fluid" src="../../../gallery/slider1.jpg" alt="First slide">
                 
                 </div>
                 <div class="carousel-item active">
@@ -144,7 +144,7 @@ a.class, a.class:hover {
                   
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block  img-fluid" src="../../../gallery/slide3.png"  alt="Third slide">
+                  <img class="d-block  img-fluid" src="../../../gallery/slider3.jpg"  alt="Third slide">
                   
                 </div>
               </div>
