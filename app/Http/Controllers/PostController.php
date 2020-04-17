@@ -145,12 +145,12 @@ class PostController extends Controller
         return redirect('/posted')->with('success','Your Data is Updated');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $posts = Post::findOrfail($id);
-        $posts ->delete();
+        $posts = Post::findOrFail($request->datadelete);
         File::delete('data_file/'.$posts->image);
         File::delete('tumbnail/'.$posts->image);
+        $posts ->delete();
 
         return redirect('/posted')->with('success','Your Data is Deleted');
     }

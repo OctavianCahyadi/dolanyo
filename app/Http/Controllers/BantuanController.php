@@ -65,9 +65,9 @@ class BantuanController extends Controller
           return redirect('/admin/bantuan')->with('success','Bantuan sudah diresponse, Email bantuan terkirim ke pelanggan');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request )
     {
-        $bantuan = Bantuan::findOrfail($id);
+        $bantuan = Bantuan::findOrFail($request->datadelete);
         $bantuan ->delete();
 
         return redirect('/admin/bantuan')->with('success','Your Data is Deleted');

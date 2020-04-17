@@ -35,11 +35,11 @@ class DashboardController extends Controller
         return redirect('/admin/role-register')->with('success','Your Data is Updated');
     }
     
-    public function registerdelete($id)
+    public function registerdelete(Request $request)
     {
-        $users= User::findOrfail($id);
+        $users = User::findOrFail($request->datadelete);
         $users->delete();
-        app()->call('App\Http\Controllers\RekomendasiController@Destroybyuser',[$id]);
+        app()->call('App\Http\Controllers\RekomendasiController@Destroybyuser',[$request->datadelete]);
 
         return redirect('/admin/role-register')->with('success','Your Data is Deleted');
     }

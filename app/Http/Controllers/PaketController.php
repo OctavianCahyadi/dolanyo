@@ -179,10 +179,10 @@ class PaketController extends Controller
         return redirect('/admin/paket')->with('success','Your Data is Updated');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request )
     {
-        $pakets = Paket::findOrfail($id);
-        app()->call('App\Http\Controllers\RekomendasiController@Destroybypaket',[$id]);
+        $pakets = Paket::findOrFail($request->datadelete);
+        app()->call('App\Http\Controllers\RekomendasiController@Destroybypaket',[$request->datadelete]);
   
         File::delete('data_file/'.$pakets->image);
         File::delete('tumbnail/'.$pakets->image);

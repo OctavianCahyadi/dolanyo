@@ -61,9 +61,10 @@ class KategoriController extends Controller
         return redirect('/admin/kategori');
     }
     
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $posts = Kategori::findOrfail($id);
+
+        $posts = Kategori::findOrfail($request->datadelete);
         $pakets = DB::table('pakets')->select('id','image')->where('kategori',$posts->id)->get(); 
         foreach ($pakets as $paket)
         {

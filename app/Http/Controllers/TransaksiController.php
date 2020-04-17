@@ -132,9 +132,9 @@ class TransaksiController extends Controller
             return view('admin.transaksi')->with('posts',$transaksi);
     
     }
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $posts = Transaksi::findOrfail($id);
+        $posts = Transaksi::findOrFail($request->datadelete);
         $posts ->delete();
 
         return redirect('/admin/transaksi')->with('success','Your Data is Deleted');

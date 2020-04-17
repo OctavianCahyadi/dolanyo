@@ -53,11 +53,11 @@ class GalleryController extends Controller
         return view('galleryall')->with('gallery',$gallery);
     }
     
-    public function delete($id){
-        $gambar = Gallery::where('id',$id)->first();
+    public function delete(Request $request ){
+        $gambar = Gallery::findOrFail($request->datadelete);
         File::delete('gallery/'.$gambar->image);
         File::delete('tumbnail/'.$gambar->image);
-        Gallery::where('id',$id)->delete();
+        $gambar->delete();
      
         return redirect('/admin/gallery')->with('success','Your Data is Deleted');
     }

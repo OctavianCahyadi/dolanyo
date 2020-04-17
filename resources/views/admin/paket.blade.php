@@ -68,7 +68,7 @@
                 <th>  KATEGORI  </th>
                 <th>  IMAGE  </th>
                 <th>  EDIT  </th>
-                <th>  DELETE  </th>
+                <th class="text-center">  DELETE  </th>
               </thead>
              <tbody>
                @foreach ($paket as $row)
@@ -85,28 +85,28 @@
                      <a href="/paket-edit/{{$row->id}}" class="btn btn-success">EDIT</a>
                      </td>
                      <td class="text-center">
-                      <a href="#myModal" class="trigger-btn" data-toggle="modal"><i class="fas fa-trash"></i> </a>
+                      <button class="btn btn-danger" data-toggle="modal" data-id="{{ $row->id }}" data-target="#delete"><i class="fas fa-trash"></i> </button>
                   </td>
                  </tr>
                   <!-- Modal HTML -->
-                  <div id="myModal" class="modal fade">
+                  <div id="delete" class="modal fade" role="dialog">
                     <div class="modal-dialog modal-confirm">
                       <div class="modal-content">
                         <div class="modal-header">
-                                
                           <h4 class="modal-title">Apakah anda yakin ?</h4>	
-                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
+                          <form action="/paket-delete/data" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
                           <p>Anda benar-benar ingin menghapus data ini ? Data yang sudah dihapus tidak dapat dikembalikan</p>
+                          <input type="hidden" name="datadelete" id="id" value="">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                          <form action="/paket-delete/{{ $row->id }}" method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                                  <button type="submit"  class="btn btn-danger">DELETE</button>
-                          </form>  
+                              <button type="submit"  class="btn btn-danger">DELETE</button>
+                          </form>   
                         </div>
                       </div>
                     </div>

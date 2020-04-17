@@ -222,6 +222,17 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
 
+ <script>
+   $('#delete').on('show.bs.modal', function (event){
+    var button = $(event.relatedTarget)
+    var dataid = button.data('id')
+    var modal=$(this)
+
+    modal.find('.modal-body #id').val(dataid);
+
+   })
+   </script>
+
   @yield('scripts')
 
 </body>
