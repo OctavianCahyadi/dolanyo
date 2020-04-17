@@ -87,7 +87,7 @@
 
             <p class="lead">{!! $paket->deskripsi !!}</p> 
             <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
-            <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
+            <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}" onkeydown="return false">
             <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
             <p class="lead">Harga paket <strong>Rp. <span id="paket">{!! $paket->harga_mulai !!}</span> /pax</strong></p>
             <p class="lead">Total Harga yang harus dibayar <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta *.</p> 

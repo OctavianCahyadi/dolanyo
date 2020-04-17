@@ -101,11 +101,12 @@
                   document.getElementById("pajak").innerHTML = ribuanpajak;
                   document.getElementById("paket").innerHTML = harga;
                     }
+                    
                 </script>
 
               <p class="lead">{!! $paket->deskripsi !!}</p> 
               <label class="" for="contactform-member"><span class="contact_form_span">Jumlah Peserta: </span> </label>
-              <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}"/>
+              <input style="width:13%;input[type=number]:focus {  border: 3px solid #555;};border-radius: 4px;" class="text-center" type="number" id="contactform-member" placeholder="Peserta" name="member" value="{{ $kategori->maxpeserta }}" min="{{ $kategori->minpeserta }}" max="{{ $kategori->maxpeserta }}" onkeydown="return false">
               <button class="btn btn-primary" onclick="fun()">Hitung Harga</button>
               <p class="lead">Harga paket <strong>Rp. <span id="paket">{!! $paket->harga_mulai !!}</span> /pax</strong></p>
               <p class="lead">Total Harga yang harus dibayar <strong>Rp. <span id="member-kosten">{!! $format_harga !!}</span></strong> untuk <strong><span id="peserta">{!! $kategori->maxpeserta !!}</span> </strong>peserta *.</p> 
@@ -168,12 +169,12 @@
                 <div class="modal-body mx-3">
                 <div class="md-form mb-2">
                   <i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-name"><span>&nbsp;</span>Nama Lengkap</label>
-                  <input type="text" id="orangeForm-name" name="nama" class="form-control validate">
+                  <input type="text" id="orangeForm-name" name="nama" class="form-control validate" required>
                 </div>
 
                 <div class="md-form mb-2">
                   <i class="fas fa-phone prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-hp"><span>&nbsp;</span>No Handphone</label>
-                  <input type="text" id="orangeForm-phone" name="handphone" class="form-control validate" value="{{ Auth::user()->phone }}">
+                  <input type="text" id="orangeForm-phone" name="handphone" class="form-control validate" value="{{ Auth::user()->phone }}" required>
                 </div>
 
                 <?php
@@ -215,12 +216,12 @@
 
                 <div class="md-form mb-3">
                   <i class="fas fa-calendar-alt prefix grey-text"></i><label data-error="wrong" data-success="right" for="date-picker-example">Tanggal Rencana</label>
-                  <input class="form-control" name="tanggal" type="date" id=”tanggal”>
+                  <input class="form-control" name="tanggal" type="date" id=”tanggal” required>
                 </div>
 
                 <div class="md-form mb-2">
                   <i class="fas fa-map-marker-alt prefix grey-text"></i><label data-error="wrong" data-success="right" for="orangeForm-hp"><span>&nbsp;</span>Tempat Penjemputan</label>
-                  <input type="text" id="orangeForm-tempat" name="tempat" class="form-control validate">
+                  <input type="text" id="orangeForm-tempat" name="tempat" class="form-control validate" required> 
                 </div>
 
 
