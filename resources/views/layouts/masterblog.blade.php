@@ -87,14 +87,10 @@
                 <span class="caret"></span>                
             </a>
            @php
-               if ( Auth::user()->pantai==NULL) {
-                 $url='/rekomendasi0';
-                 $link='Rekomendasi';
-               }else {
+               
                  $id= Auth::user()->id;
                  $url='/showrekomendasi/'.$id;
                  $link='Rekomendasi';
-               }
            @endphp
             
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
