@@ -111,9 +111,7 @@
                         <input value ="{{$paket->pantai}}" type="range" min="1" max="4"  class="slider" id="question4" name="ranting4">
                         <label class="badge badge-neutral"><span id="question4score"></span></label>
                     </div>                                       
-                </div>
-                </div>
-               
+                </div>     
             </div>
             </div>
             <div class="form-group">
