@@ -122,10 +122,11 @@ class PostController extends Controller
             'title'=>['required','string'], 
             'body'=>['required','string'],           
         ]);
+
         $posts = Post::find($id);
         if ($request->File('file')) { 
-            
-
+            File::delete('data_file/'.$post->image);
+            File::delete('tumbnail/'.$post->image);
             $file=$request->file('file');
             $nama_file=time()."_".$file->getClientOriginalName();
             $tujuanupload='tumbnail';

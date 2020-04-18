@@ -131,7 +131,7 @@
         
 
             <div class="custom-file mb-3 mt-3">
-                <input type="file" name="image" class="custom-file-input" id="image" required>
+                <input type="file" name="image" class="custom-file-input" id="image">
                 <label class="custom-file-label" >Choose file...</label>
               </div>
               <button type="submit" class="btn btn-success">Update</button>
