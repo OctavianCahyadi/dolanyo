@@ -85,28 +85,28 @@
                 <div class="col-md-2 mt-1">
                     <label for="">Wisata Pegunungan</label>
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="4" class="slider" id="question1" name="ranting1" value="{{ old('ranting1') }}">
+                        <input type="range" min="0" max="4" class="slider" id="question1" name="ranting1" value="{{ old('ranting1') }}">
                         <label class="badge badge-neutral"><span id="question1score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Perkotaan/bangunan</label>
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="4" class="slider" id="question2" name="ranting2" value="{{ old('ranting2') }}">
+                        <input type="range" min="0" max="4" class="slider" id="question2" name="ranting2" value="{{ old('ranting2') }}">
                         <label class="badge badge-neutral"><span id="question2score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Sungai</label>
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="4"  class="slider" id="question3" name="ranting3" value="{{ old('ranting3') }}">
+                        <input type="range" min="0" max="4"  class="slider" id="question3" name="ranting3" value="{{ old('ranting3') }}">
                         <label class="badge badge-neutral"><span id="question3score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Pantai</label>
                     <div class="slidecontainer">
-                        <input type="range" min="1" max="4"  class="slider" id="question4" name="ranting4" value="{{ old('ranting4') }}">
+                        <input type="range" min="0" max="4"  class="slider" id="question4" name="ranting4" value="{{ old('ranting4') }}">
                         <label class="badge badge-neutral"><span id="question4score"></span></label>
                     </div>                                       
                 </div>

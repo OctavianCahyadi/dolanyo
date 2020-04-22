@@ -87,28 +87,28 @@
                 <div class="col-md-2 mt-1">
                     <label for="">Wisata Pegunungan</label>
                     <div class="slidecontainer">
-                        <input value ="{{$paket->pegunungan}}" type="range" min="1" max="4" class="slider" id="question1" name="ranting1">
+                        <input value ="{{$paket->pegunungan}}" type="range" min="0" max="4" class="slider" id="question1" name="ranting1">
                         <label class="badge badge-neutral"><span id="question1score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Perkotaan/bangunan</label>
                     <div class="slidecontainer">
-                        <input value ="{{$paket->bangunan}}" type="range" min="1" max="4" class="slider" id="question2" name="ranting2">
+                        <input value ="{{$paket->bangunan}}" type="range" min="0" max="4" class="slider" id="question2" name="ranting2">
                         <label class="badge badge-neutral"><span id="question2score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Wisata Sungai</label>
                     <div class="slidecontainer">
-                        <input value ="{{$paket->sungai}}" type="range" min="1" max="4"  class="slider" id="question3" name="ranting3">
+                        <input value ="{{$paket->sungai}}" type="range" min="0" max="4"  class="slider" id="question3" name="ranting3">
                         <label class="badge badge-neutral"><span id="question3score"></span></label>
                     </div>                                       
                 </div>
                 <div class="col-md-2 mt-1">
                     <label for="">Wisata pantai</label>
                     <div class="slidecontainer">
-                        <input value ="{{$paket->pantai}}" type="range" min="1" max="4"  class="slider" id="question4" name="ranting4">
+                        <input value ="{{$paket->pantai}}" type="range" min="0" max="4"  class="slider" id="question4" name="ranting4">
                         <label class="badge badge-neutral"><span id="question4score"></span></label>
                     </div>                                       
                 </div>     
