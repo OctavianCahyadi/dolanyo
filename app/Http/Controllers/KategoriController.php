@@ -68,7 +68,7 @@ class KategoriController extends Controller
         $pakets = DB::table('pakets')->select('id','image')->where('kategori',$posts->id)->get(); 
         foreach ($pakets as $paket)
         {
-            app()->call('App\Http\Controllers\PaketController@destroy',[$paket->id]); 
+            app()->call('App\Http\Controllers\PaketController@destroybykategori',[$paket->id]); 
         }
         File::delete('data_file/'.$posts->image);
         File::delete('tumbnail/'.$posts->image);

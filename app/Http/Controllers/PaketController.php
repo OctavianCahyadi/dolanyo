@@ -189,6 +189,11 @@ class PaketController extends Controller
         $pakets ->delete();
         return redirect('/admin/paket')->with('success','Your Data is Deleted');
     }
+    public function destroybykategori($id)
+    {
+        app()->call('App\Http\Controllers\RekomendasiController@Destroybypaket',[$id]);
+        Paket :: where ('id',$id)->delete();
+    }
     
     public function cari(Request $request)
     {
